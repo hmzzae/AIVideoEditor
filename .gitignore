@@ -1,0 +1,17 @@
+﻿venv/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+ffmpeg.exe
+ffprobe.exe
+ffplay.exe
+__pycache__/
+*.pyc
+.env
+output/
+outputs/
+temp/
+cache/
