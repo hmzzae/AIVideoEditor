@@ -43,8 +43,17 @@ class AppWindow(ctk.CTk):
         ctk.CTkLabel(key_frame, text="Gemini API Key:").pack(side="left", padx=10, pady=15)
         self.api_key_entry = ctk.CTkEntry(key_frame, show="*", width=400, placeholder_text="Enter your Gemini API key...")
         self.api_key_entry.pack(side="left", padx=10, pady=15)
-        
+    def paste_api_key(event=None):
+        try:
+            clipboard_text = self.clipboard_get()
+            self.api_key_entry.insert("insert", clipboard_text)
+        except Exception:
+            pass
+        return "break"  # Prevents double paste on some systems
 
+    # Bind Ctrl+v, Control+v, and middle-click paste for Linux
+    self.api_key_entry.bind("<Control-v>", paste_api_key)
+    self.api_key_entry.bind("<Control-V>", paste_api_key)
     def build_editor_tab(self):
         self.tab_editor.grid_columnconfigure(0, weight=1) 
         self.tab_editor.grid_columnconfigure(1, weight=1) 
