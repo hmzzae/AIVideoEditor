@@ -41,9 +41,9 @@ class AppWindow(ctk.CTk):
         key_frame.pack(pady=10, padx=20, fill="x")
         
         ctk.CTkLabel(key_frame, text="Gemini API Key:").pack(side="left", padx=10, pady=15)
-        self.api_key_entry = ctk.CTkEntry(key_frame, show="*", width=400)
+        self.api_key_entry = ctk.CTkEntry(key_frame, show="*", width=400, placeholder_text="Enter your Gemini API key...")
         self.api_key_entry.pack(side="left", padx=10, pady=15)
-        self.api_key_entry.insert(0, "AIzaSyBQjfh--mjP_NDEIocaH9LfZgGNZNxSjgc")
+        
 
     def build_editor_tab(self):
         self.tab_editor.grid_columnconfigure(0, weight=1) 
@@ -61,7 +61,7 @@ class AppWindow(ctk.CTk):
         self.video_path_entry.pack(side="left", fill="x", expand=True, padx=(0, 10))
         ctk.CTkButton(input_row, text="Browse", command=self.browse_video, width=80).pack(side="right")
         
-        self.process_btn = ctk.CTkButton(left_panel, text="🚀 Generate Viral Short", font=ctk.CTkFont(size=15, weight="bold"), height=40, command=self.start_processing_thread)
+        self.process_btn = ctk.CTkButton(left_panel, text="Generate a Reel", font=ctk.CTkFont(size=15, weight="bold"), height=40, command=self.start_processing_thread)
         self.process_btn.pack(fill="x", pady=(0, 10))
         
         self.progress_label = ctk.CTkLabel(left_panel, text="Status: Awaiting input...", text_color="gray")
